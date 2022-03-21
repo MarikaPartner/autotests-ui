@@ -1,10 +1,11 @@
-package md.homeworks;
+package md.homeworks.lesson3;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -27,6 +28,7 @@ public class LoginAndLogout {
 
 //      Выход из режима авторизации
         webDriver.findElement(By.xpath("//div[@class='ui dropdown avatar item']")).click();
+        //new WebDriverWait(webDriver, 5).
         new WebDriverWait(webDriver, 5).until(ExpectedConditions.visibilityOf(webDriver.findElement(By.xpath("//a[i[@class='sign out icon']]")))).click();
         new WebDriverWait(webDriver,5).until(ExpectedConditions.presenceOfElementLocated(By.xpath("//a[span[text()='Войти']]")));
 
