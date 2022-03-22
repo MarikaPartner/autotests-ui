@@ -12,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 public class TriangleTest {
 
     @Test
-    @DisplayName("Площадь треугольника 2, 2, 1 должна быть равна 0.9682")
+    @DisplayName("Площадь треугольника 2, 2, 1 должна быть равна 0.9682")  // Равнобедренный остроугольный
     public void countAreaIsoscelesAcuteTriangleSuccessfulTest() {
         Triangle triangle = new Triangle(2, 2, 1); // Arrange
         double areaTriangle = triangle.countAreaTriangle();  // Act
@@ -20,7 +20,7 @@ public class TriangleTest {
     }
 
     @Test
-    @DisplayName("Площадь треугольника 25, 25, 42 должна быть равна 284.8579")
+    @DisplayName("Площадь треугольника 25, 25, 42 должна быть равна 284.8579")  // Равнобедренный тупоугольный
     public void countAreaIsoscelesObtuseTriangleSuccessfulTest() {
         Triangle triangle = new Triangle(25, 25, 42);
         double areaTriangle = triangle.countAreaTriangle();
@@ -28,7 +28,7 @@ public class TriangleTest {
     }
 
     @Test
-    @DisplayName("Площадь треугольника 11000, 11000, 11000 должна быть равна 52394536.9290")
+    @DisplayName("Площадь треугольника 11000, 11000, 11000 должна быть равна 52394536.9290")  // Равносторонний остроугольный
     public void countAreaEquilateralAcuteTriangleSuccessfulTest() {
         Triangle triangle = new Triangle(11000, 11000, 11000);
         double areaTriangle = triangle.countAreaTriangle();
@@ -36,7 +36,7 @@ public class TriangleTest {
     }
 
     @Test
-    @DisplayName("Площадь треугольника 9, 12, 15 должна быть равна 54")
+    @DisplayName("Площадь треугольника 9, 12, 15 должна быть равна 54")  // Разносторонний прямоугольный
     public void countAreaRightTriangleSuccessfulTest() {
         Triangle triangle = new Triangle(9, 12, 15);
         double areaTriangle = triangle.countAreaTriangle();
@@ -44,7 +44,7 @@ public class TriangleTest {
     }
 
     @Test
-    @DisplayName("Площадь треугольника 300, 400, 500 должна быть равна 60000")
+    @DisplayName("Площадь треугольника 300, 400, 500 должна быть равна 60000")  // Разносторонний остроугольный
     public void countAreaAcuteTriangleSuccessfulTest() {
         Triangle triangle = new Triangle(300, 400, 500);
         double areaTriangle = triangle.countAreaTriangle();
@@ -52,7 +52,7 @@ public class TriangleTest {
     }
 
     @Test
-    @DisplayName("Площадь треугольника 6, 28,  24 должна быть равна 57.7495")
+    @DisplayName("Площадь треугольника 6, 28,  24 должна быть равна 57.7495")   //  Разносторонний тупоугольный
     public void countAreaObtuseTriangleSuccessfulTest() {
         Triangle triangle = new Triangle(6, 28, 24);
         double areaTriangle = triangle.countAreaTriangle();
@@ -109,8 +109,24 @@ public class TriangleTest {
 
     @Test
     @DisplayName("Треугольник со сторонами 25, 75, 13 не существует - ошибка 'The triangle with the specified sides does not exist.'")
-    public void countAreaTriangleIsNotFailedTest() {
+    public void countAreaTriangleIsNotSumCALessBFailedTest() {
         Triangle triangle = new Triangle(25, 75, 13);
+        IllegalArgumentException illegalArgumentException = assertThrows(IllegalArgumentException.class, triangle::countAreaTriangle);
+        assertEquals("The triangle with the specified sides does not exist.", illegalArgumentException.getMessage());
+    }
+
+    @Test
+    @DisplayName("Треугольник со сторонами 75, 13, 25 не существует - ошибка 'The triangle with the specified sides does not exist.'")
+    public void countAreaTriangleIsNotSumBCLessAFailedTest() {
+        Triangle triangle = new Triangle(75, 13, 25);
+        IllegalArgumentException illegalArgumentException = assertThrows(IllegalArgumentException.class, triangle::countAreaTriangle);
+        assertEquals("The triangle with the specified sides does not exist.", illegalArgumentException.getMessage());
+    }
+
+    @Test
+    @DisplayName("Треугольник со сторонами 13, 25, 75 не существует - ошибка 'The triangle with the specified sides does not exist.'")
+    public void countAreaTriangleIsNotSummABLessCFailedTest() {
+        Triangle triangle = new Triangle(13, 25, 75);
         IllegalArgumentException illegalArgumentException = assertThrows(IllegalArgumentException.class, triangle::countAreaTriangle);
         assertEquals("The triangle with the specified sides does not exist.", illegalArgumentException.getMessage());
     }

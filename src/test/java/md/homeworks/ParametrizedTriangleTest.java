@@ -47,7 +47,9 @@ public class ParametrizedTriangleTest {
                 Arguments.of(new Triangle(0, 2, 1), "The sides of the triangle must be greater than 0."),
                 Arguments.of(new Triangle(2, 0, 1), "The sides of the triangle must be greater than 0."),
                 Arguments.of(new Triangle(2, 2, 0), "The sides of the triangle must be greater than 0."),
-                Arguments.of(new Triangle(25, 75, 13), "The triangle with the specified sides does not exist.")
+                Arguments.of(new Triangle(25, 75, 13), "The triangle with the specified sides does not exist."),
+                Arguments.of(new Triangle(75, 13, 25), "The triangle with the specified sides does not exist."),
+                Arguments.of(new Triangle(13, 25, 75), "The triangle with the specified sides does not exist.")
         );
     }
 
