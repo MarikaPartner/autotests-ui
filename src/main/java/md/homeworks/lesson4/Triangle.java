@@ -20,7 +20,7 @@ public class Triangle {
         checkSidesArePositive();    // Проверка, что стороны треугольника не отрицательные
         checkSidesAreNotZero();     // Проверка, что стороны треугольника не равны нулю
         checkIsTriangle();          // Проверка, что треугольник с указанными сторонами существует
-        double semiperimeter = (a + b + c) / 2.0; // Вычисление полупериметра треугольника
+        double semiperimeter = (a + b + c) / 2.0; // Вычисление полупериметра
         double areaTriangle = Math.sqrt(semiperimeter * (semiperimeter - a) * (semiperimeter - b) * (semiperimeter - c));  // Вычисление площади по формуле Герона
         double roundedAreaTriangle = new BigDecimal(areaTriangle).setScale(4, RoundingMode.HALF_EVEN).doubleValue();  // Округление полученного значения
         return roundedAreaTriangle;

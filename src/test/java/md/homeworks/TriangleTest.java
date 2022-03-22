@@ -52,7 +52,7 @@ public class TriangleTest {
     }
 
     @Test
-    @DisplayName("Площадь треугольника 6, 28,  24 должна быть равна 57.7495")   //  Разносторонний тупоугольный
+    @DisplayName("Площадь треугольника 6, 28,  24 должна быть равна 57.7495")  //  Разносторонний тупоугольный
     public void countAreaObtuseTriangleSuccessfulTest() {
         Triangle triangle = new Triangle(6, 28, 24);
         double areaTriangle = triangle.countAreaTriangle();
