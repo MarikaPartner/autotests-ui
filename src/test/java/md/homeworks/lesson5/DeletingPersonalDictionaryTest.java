@@ -32,6 +32,7 @@ public class DeletingPersonalDictionaryTest extends BaseTest {
 //      Переход в раздел "Все словари"
         WebElement mainMenu = webDriver.findElement(By.id("msui-sidebar"));    // Открываем главное меню
         mainMenu.findElement(By.xpath("//a[contains(text(),'Персональные словари')]")).click();
+        Thread.sleep(10000);
 
 //      Создание тестового словаря
         webDriver.findElement(By.xpath("//button[contains(text(),'Новый словарь')]")).click();

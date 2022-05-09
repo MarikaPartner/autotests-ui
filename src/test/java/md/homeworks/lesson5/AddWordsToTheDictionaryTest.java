@@ -172,11 +172,11 @@ public class AddWordsToTheDictionaryTest extends BaseTest {
 //      Проверка, что транскрипция подобрана системой правильно
         SoftAssertions softAssertionsAfter = new SoftAssertions();
         for (Word word : newWords) {
-            softAssertionsBefore.assertThat(webDriver.findElement(By.xpath("//span[text()='" + word.getWord() + "']/ancestor::div[@class='row mld-word-row']//div[@class='middle aligned four wide column mld-value-col']/span"))
+            softAssertionsAfter.assertThat(webDriver.findElement(By.xpath("//span[text()='" + word.getWord() + "']/ancestor::div[@class='row mld-word-row']//div[@class='middle aligned four wide column mld-value-col']/span"))
                             .getText())
                     .isEqualTo(word.getTranscription());
         }
-        softAssertionsBefore.assertAll();
+        softAssertionsAfter.assertAll();
 
         //Thread.sleep(5000);
     }

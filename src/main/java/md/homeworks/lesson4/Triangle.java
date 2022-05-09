@@ -8,8 +8,8 @@ import lombok.Setter;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
-@Data
-@AllArgsConstructor
+@Data  // Заменяет геттеры и сеттеры
+@AllArgsConstructor  //  Создает конструктор со всеми параметрами
 public class Triangle {
 
     private int a;
