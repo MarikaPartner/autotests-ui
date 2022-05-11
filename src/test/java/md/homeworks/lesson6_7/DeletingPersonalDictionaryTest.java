@@ -7,17 +7,13 @@ import io.qameta.allure.SeverityLevel;
 import md.homeworks.lesson6_7.listener.AllureListener;
 import md.homeworks.lesson6_7.pages.MainPage;
 import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 import org.openqa.selenium.Dimension;
-import org.openqa.selenium.logging.LogType;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
 import java.util.concurrent.TimeUnit;
-import static io.qameta.allure.Allure.addAttachment;
-import static io.qameta.allure.Allure.step;
 
 @DisplayName("Удаление словарей")
 public class DeletingPersonalDictionaryTest extends BaseTest {
@@ -30,13 +26,7 @@ public class DeletingPersonalDictionaryTest extends BaseTest {
         webDriver.manage().window().setSize(new Dimension(1800, 1300));
         new MainPage(webDriver).login(LOGIN, PASSWORD);
     }
-    @AfterEach
-    void recordLogs() {
-        step("Логи браузера", () -> {
-            webDriver.manage().logs().get(LogType.BROWSER)
-                    .forEach(log -> addAttachment("logs", log.getMessage()));
-        });
-    }
+
     @AfterAll
     static void tearDown() {
         webDriver.quit();

@@ -8,11 +8,8 @@ import md.homeworks.lesson6_7.listener.AllureListener;
 import md.homeworks.lesson6_7.pages.MainPage;
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.Dimension;
-import org.openqa.selenium.logging.LogType;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
 import java.util.concurrent.TimeUnit;
-import static io.qameta.allure.Allure.addAttachment;
-import static io.qameta.allure.Allure.step;
 
 @DisplayName("Авторизация")
 public class LoginAndLogoutTest extends BaseTest {
@@ -26,12 +23,8 @@ public class LoginAndLogoutTest extends BaseTest {
         webDriver.manage().window().setSize(new Dimension(1500, 1100));
     }
 
-    @AfterEach
-    void tearDown() {
-        step("Логи браузера", () -> {
-            webDriver.manage().logs().get(LogType.BROWSER)
-                    .forEach(log -> addAttachment("logs", log.getMessage()));
-        });
+    @AfterAll
+    static void tearDown() {
         webDriver.quit();
     }
 

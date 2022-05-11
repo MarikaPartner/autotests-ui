@@ -16,8 +16,6 @@ import org.openqa.selenium.logging.LogType;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
 import java.util.concurrent.TimeUnit;
 import java.util.stream.Stream;
-import static io.qameta.allure.Allure.addAttachment;
-import static io.qameta.allure.Allure.step;
 
 @DisplayName("Создание словарей")
 public class CreatingPersonalDictionaryTest extends BaseTest {
@@ -30,14 +28,6 @@ public class CreatingPersonalDictionaryTest extends BaseTest {
         webDriver.get("https://myefe.ru/");
         webDriver.manage().window().setSize(new Dimension(1500, 1100));
         new MainPage(webDriver).login(LOGIN, PASSWORD);
-    }
-
-    @AfterEach
-    void recordLogs() {
-        step("Логи браузера", () -> {
-            webDriver.manage().logs().get(LogType.BROWSER)
-                    .forEach(log -> addAttachment("logs", log.getMessage()));
-        });
     }
 
     @AfterAll
